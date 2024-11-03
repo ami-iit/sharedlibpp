@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 
     if(argc < 2) {
         printf("Usage: %s <library file name>\n", argv[0]);
-        printf("for example: %s libmymath.so\n", argv[0]);
+        printf("for example: %s mymath\n", argv[0]);
         return 0;
     }
 

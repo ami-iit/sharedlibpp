@@ -6,11 +6,16 @@
 
 include (GNUInstallDirs)
 
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/shlibpp/config.h.in"
+               "${CMAKE_CURRENT_BINARY_DIR}/shlibpp/config.h"
+               @ONLY)
+
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/shlibpp/version.h.in"
                "${CMAKE_CURRENT_BINARY_DIR}/shlibpp/version.h"
                @ONLY)
 
-set(shlibpp_HDRS "${CMAKE_CURRENT_BINARY_DIR}/shlibpp/version.h"
+set(shlibpp_HDRS "${CMAKE_CURRENT_BINARY_DIR}/shlibpp/config.h"
+                 "${CMAKE_CURRENT_BINARY_DIR}/shlibpp/version.h"
                  shlibpp/api.h
                  shlibpp/SharedLibraryClassApi.h
                  shlibpp/SharedLibraryClassFactory.h

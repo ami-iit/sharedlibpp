@@ -7,7 +7,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 project(shlibpp
-        VERSION 0.0.1
+        VERSION 0.0.2
         DESCRIPTION "Tiny cross-platform plug-in system (dll, so, dylib)"
         LANGUAGES CXX)
 

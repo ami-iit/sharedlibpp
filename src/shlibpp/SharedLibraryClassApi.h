@@ -10,11 +10,10 @@
 #define SHAREDLIBPP_SHAREDLIBRARYCLASSAPI_H
 
 #include <shlibpp/api.h>
+#include <shlibpp/config.h>
 #include <cstring>
 
 namespace shlibpp {
-
-constexpr size_t padding = 30 - 2 * (sizeof(void*) / 4);
 
 // Be careful loading C++ classes from DLLs.  Generally you
 // need an exact or very close match between compilers used
@@ -40,7 +39,7 @@ extern "C" {
 
         using createFn_t = void*(*)();
         using destroyFn_t = void(*)(void*);
-        using getFn_t = size_t(*)(char*, size_t);
+        using getFn_t = int32_t(*)(char*, size_t);
 
         createFn_t create;        // Instantiate a plugin object.
         destroyFn_t destroy;      // Destroy a plugin object.
@@ -49,7 +48,7 @@ extern "C" {
         getFn_t getClassName;     // Name of plugin (subclass).
         getFn_t getBaseClassName; // Name superclass.
 
-        int32_t roomToGrow[padding]; // Padding.
+        int32_t roomToGrow[SHLIBPP_SHAREDLIBRARYCLASSAPI_PADDING]; // Padding.
         int32_t endCheck;      // A 32-bit integer that is checked when loading
                                // a plugin.
     };
@@ -114,28 +113,28 @@ constexpr int32_t SHLIBPP_DEFAULT_SYSTEM_VERSION = 5;
         } \
     } \
     \
-    SHLIBPP_SHARED_CLASS_FN size_t factoryname ## _getVersion (char* ver, size_t len) \
+    SHLIBPP_SHARED_CLASS_FN int32_t factoryname ## _getVersion (char* ver, size_t len) \
     { \
         return 0; \
     } \
     \
-    SHLIBPP_SHARED_CLASS_FN size_t factoryname ## _getAbi (char* abi, size_t len) \
+    SHLIBPP_SHARED_CLASS_FN int32_t factoryname ## _getAbi (char* abi, size_t len) \
     { \
         return 0; \
     } \
     \
-    SHLIBPP_SHARED_CLASS_FN size_t factoryname ## _getClassName (char* name, size_t len) \
+    SHLIBPP_SHARED_CLASS_FN int32_t factoryname ## _getClassName (char* name, size_t len) \
     { \
         char cname[] = # classname; \
         strncpy(name, cname, len); \
-        return strlen(cname) + 1; \
+        return static_cast<int32_t>(strlen(cname) + 1); \
     } \
     \
-    SHLIBPP_SHARED_CLASS_FN size_t factoryname ## _getBaseClassName (char* name, size_t len) \
+    SHLIBPP_SHARED_CLASS_FN int32_t factoryname ## _getBaseClassName (char* name, size_t len) \
     { \
         char cname[] = # basename; \
         strncpy(name, cname, len); \
-        return strlen(cname) + 1; \
+        return static_cast<int32_t>(strlen(cname) + 1); \
     } \
     \
     SHLIBPP_SHARED_CLASS_FN int32_t factoryname(void* api, size_t len) { \
@@ -152,7 +151,7 @@ constexpr int32_t SHLIBPP_DEFAULT_SYSTEM_VERSION = 5;
         sapi->getAbi = factoryname ## _getAbi; \
         sapi->getClassName = factoryname ## _getClassName; \
         sapi->getBaseClassName = factoryname ## _getBaseClassName; \
-        for (size_t i = 0; i < shlibpp::padding; i++) { \
+        for (int i=0; i<SHLIBPP_SHAREDLIBRARYCLASSAPI_PADDING; i++) { \
             sapi->roomToGrow[i] = 0; \
         } \
         sapi->endCheck = endcheck; \

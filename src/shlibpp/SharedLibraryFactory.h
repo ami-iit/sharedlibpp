@@ -10,6 +10,7 @@
 #define SHAREDLIBPP_SHAREDLIBRARYFACTORY_H
 
 #include <shlibpp/api.h>
+#include <cstdint>
 #include <string>
 
 namespace shlibpp {
@@ -140,6 +141,19 @@ public:
      */
     bool open(const char *dll_name,
               const char *factoryName = nullptr);
+
+    /**
+     * Set the name of the environment variable that extends the search path
+     * @param env_var The name of the environment variable
+     */
+    void setPluginPathEnvVarName(const std::string& env_var);
+
+    /**
+     * Add path to search for plugins
+     *
+     * @param path The new path to be added.
+     */
+    void extendSearchPath(const std::string& path);
 
     /**
      * Check if factory is configured and present.

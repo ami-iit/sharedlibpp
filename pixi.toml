@@ -1,5 +1,5 @@
 [project]
-name = "shlibpp"
+name = "sharedlibpp"
 # As this version is currently ignored, we do not
 # waste effort in mantain it in synch with the value
 # specified in CMakeLists.txt

@@ -7,7 +7,7 @@
  */
 
 #include "MyMathCustom.h"
-#include <shlibpp/SharedLibraryClass.h>
+#include <sharedlibpp/SharedLibraryClass.h>
 
 SHLIBPP_DEFINE_SHARED_SUBCLASS_CUSTOM(CUSTOM_START_CHECK, CUSTOM_END_CHECK, CUSTOM_SYSTEM_VERSION, my_math_custom, MyMathCustomImpl, MyMathCustom);
 

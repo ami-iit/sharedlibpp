@@ -9,9 +9,9 @@
 #ifndef SHAREDLIBPP_SHAREDLIBRARYCLASS_H
 #define SHAREDLIBPP_SHAREDLIBRARYCLASS_H
 
-#include <shlibpp/SharedLibraryClassFactory.h>
+#include <sharedlibpp/SharedLibraryClassFactory.h>
 
-namespace shlibpp {
+namespace sharedlibpp {
 
 /**
  * Container for an object created using a factory provided by a shared library.
@@ -120,9 +120,9 @@ private:
 #endif
 };
 
-} // namespace shlibpp
+} // namespace sharedlibpp
 
 
-#include <shlibpp/SharedLibraryClass-inl.h>
+#include <sharedlibpp/SharedLibraryClass-inl.h>
 
 #endif // SHAREDLIBPP_SHAREDLIBRARYCLASS_H

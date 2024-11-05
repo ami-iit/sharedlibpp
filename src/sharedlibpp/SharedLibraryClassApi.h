@@ -9,11 +9,11 @@
 #ifndef SHAREDLIBPP_SHAREDLIBRARYCLASSAPI_H
 #define SHAREDLIBPP_SHAREDLIBRARYCLASSAPI_H
 
-#include <shlibpp/api.h>
-#include <shlibpp/config.h>
+#include <sharedlibpp/api.h>
+#include <sharedlibpp/config.h>
 #include <cstring>
 
-namespace shlibpp {
+namespace sharedlibpp {
 
 // Be careful loading C++ classes from DLLs.  Generally you
 // need an exact or very close match between compilers used
@@ -55,7 +55,7 @@ extern "C" {
 
 } // extern "C"
 
-} // namespace shlibpp
+} // namespace sharedlibpp
 
 
 #define SHLIBPP_SHARED_CLASS_FN extern "C" SHLIBPP_EXPORT
@@ -138,12 +138,12 @@ constexpr int32_t SHLIBPP_DEFAULT_SYSTEM_VERSION = 5;
     } \
     \
     SHLIBPP_SHARED_CLASS_FN int32_t factoryname(void* api, size_t len) { \
-        struct shlibpp::SharedLibraryClassApi* sapi = static_cast<struct shlibpp::SharedLibraryClassApi*>(api); \
-        if (len < sizeof(shlibpp::SharedLibraryClassApi)) { \
+        struct sharedlibpp::SharedLibraryClassApi* sapi = static_cast<struct sharedlibpp::SharedLibraryClassApi*>(api); \
+        if (len < sizeof(sharedlibpp::SharedLibraryClassApi)) { \
             return -1; \
         } \
         sapi->startCheck = startcheck; \
-        sapi->structureSize = sizeof(shlibpp::SharedLibraryClassApi); \
+        sapi->structureSize = sizeof(sharedlibpp::SharedLibraryClassApi); \
         sapi->systemVersion = systemversion; \
         sapi->create = factoryname ## _create; \
         sapi->destroy = factoryname ## _destroy; \

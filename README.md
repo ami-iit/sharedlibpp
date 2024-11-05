@@ -1,8 +1,8 @@
 Simple cross platform plug-in system
 ====================================
 
-`shlibpp` is a tiny cross-platform library to create and load shared
-libraries for different platform (Linux/Mac/Windows). `shlibpp` provides
+`sharedlibpp` is a tiny cross-platform library to create and load shared
+libraries for different platform (Linux/Mac/Windows). `sharedlibpp` provides
 an easy and portable way to create plug-ins which encapsulate your c++ classes
 inside a shared library (so, dylib, dll).
 The original code is taken and from
@@ -13,7 +13,7 @@ added to report the native OS error messages on failures.
 
 Building on Linux/Mac
 ---------------------
-    $ cd shlibpp
+    $ cd sharedlibpp
     $ cmake -Bbuild -S. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./install
     $ cmake --build . --config Release
     $ cmake --install .
@@ -25,7 +25,7 @@ The build system by default compiles and build the examples.
 
 * On Linux/Mac
 ```
-    $ cd shlibpp/build/examples
+    $ cd sharedlibpp/build/examples
     $ ./math_test mymath
     $ ./math_test_custom mymathcustom
 ```

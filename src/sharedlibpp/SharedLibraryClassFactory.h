@@ -12,7 +12,7 @@
 #include <sharedlibpp/SharedLibraryFactory.h>
 #include <sharedlibpp/SharedLibraryClassApi.h>
 
-namespace shlibpp {
+namespace sharedlibpp {
 
 /**
  * A type-safe wrapper for SharedLibraryFactory, committing to
@@ -44,7 +44,7 @@ public:
     void destroy(T *obj) const;
 };
 
-} // namespace shlibpp
+} // namespace sharedlibpp
 
 #include <sharedlibpp/SharedLibraryClassFactory-inl.h>
 

@@ -11,7 +11,7 @@
 
 #include <sharedlibpp/SharedLibraryClassFactory.h>
 
-namespace shlibpp {
+namespace sharedlibpp {
 
 /**
  * Container for an object created using a factory provided by a shared library.
@@ -120,7 +120,7 @@ private:
 #endif
 };
 
-} // namespace shlibpp
+} // namespace sharedlibpp
 
 
 #include <sharedlibpp/SharedLibraryClass-inl.h>

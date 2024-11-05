@@ -12,7 +12,7 @@
 #include <sharedlibpp/api.h>
 #include <string>
 
-namespace shlibpp {
+namespace sharedlibpp {
 
 /**
  * Low-level wrapper for loading shared libraries (DLLs) and accessing
@@ -87,6 +87,6 @@ private:
 #endif
 };
 
-} // namespace shlibpp
+} // namespace sharedlibpp
 
 #endif // SHAREDLIBPP_SHAREDLIBRARY_H

@@ -16,7 +16,7 @@
 
 #include <sharedlibpp/SharedLibrary.h>
 
-using namespace shlibpp;
+using namespace sharedlibpp;
 
 
 class SharedLibrary::Private

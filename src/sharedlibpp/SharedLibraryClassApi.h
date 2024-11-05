@@ -13,7 +13,7 @@
 #include <sharedlibpp/config.h>
 #include <cstring>
 
-namespace shlibpp {
+namespace sharedlibpp {
 
 // Be careful loading C++ classes from DLLs.  Generally you
 // need an exact or very close match between compilers used
@@ -55,7 +55,7 @@ extern "C" {
 
 } // extern "C"
 
-} // namespace shlibpp
+} // namespace sharedlibpp
 
 
 #define SHLIBPP_SHARED_CLASS_FN extern "C" SHLIBPP_EXPORT

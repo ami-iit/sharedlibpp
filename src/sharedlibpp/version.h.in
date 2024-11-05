@@ -17,13 +17,13 @@
 #define SHLIBPP_VERSION_PATCH @sharedlibpp_VERSION_PATCH@
 #define SHLIBPP_VERSION "@sharedlibpp_VERSION@"
 
-namespace shlibpp {
+namespace sharedlibpp {
 
 SHLIBPP_API int getVersionMajor();
 SHLIBPP_API int getVersionMinor();
 SHLIBPP_API int getVersionPatch();
 SHLIBPP_API std::string getVersion();
 
-} // namespace shlibpp
+} // namespace sharedlibpp
 
 #endif // SHAREDLIBPP_VERSION_H

@@ -13,7 +13,7 @@
 #include <cstdint>
 #include <string>
 
-namespace shlibpp {
+namespace sharedlibpp {
 
 struct SharedLibraryClassApi;
 
@@ -244,6 +244,6 @@ private:
 #endif
 };
 
-} // namespace shlibpp
+} // namespace sharedlibpp
 
 #endif // SHAREDLIBPP_SHAREDLIBRARYFACTORY_H

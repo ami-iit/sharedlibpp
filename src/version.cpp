@@ -6,24 +6,24 @@
  * BSD-3-Clause license. See the accompanying LICENSE file for details.
  */
 
-#include <shlibpp/version.h>
+#include <sharedlibpp/version.h>
 
-int shlibpp::getVersionMajor()
+int sharedlibpp::getVersionMajor()
 {
     return SHLIBPP_VERSION_MAJOR;
 }
 
-int shlibpp::getVersionMinor()
+int sharedlibpp::getVersionMinor()
 {
     return SHLIBPP_VERSION_MINOR;
 }
 
-int shlibpp::getVersionPatch()
+int sharedlibpp::getVersionPatch()
 {
     return SHLIBPP_VERSION_PATCH;
 }
 
-std::string shlibpp::getVersion()
+std::string sharedlibpp::getVersion()
 {
     return SHLIBPP_VERSION;
 }

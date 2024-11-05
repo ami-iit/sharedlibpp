@@ -14,7 +14,7 @@
 #  include <dlfcn.h>
 #endif
 
-#include <shlibpp/SharedLibrary.h>
+#include <sharedlibpp/SharedLibrary.h>
 
 using namespace shlibpp;
 

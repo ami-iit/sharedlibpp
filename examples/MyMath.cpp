@@ -7,7 +7,7 @@
  */
 
 #include "MyMath.h"
-#include <shlibpp/SharedLibraryClass.h>
+#include <sharedlibpp/SharedLibraryClass.h>
 
 SHLIBPP_DEFINE_SHARED_SUBCLASS(my_math, MyMathImpl, MyMath);
 

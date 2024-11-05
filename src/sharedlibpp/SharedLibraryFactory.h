@@ -9,7 +9,7 @@
 #ifndef SHAREDLIBPP_SHAREDLIBRARYFACTORY_H
 #define SHAREDLIBPP_SHAREDLIBRARYFACTORY_H
 
-#include <shlibpp/api.h>
+#include <sharedlibpp/api.h>
 #include <cstdint>
 #include <string>
 

@@ -10,7 +10,7 @@
 #define SHAREDLIBPP_SHAREDLIBRARYCLASSFACTORY_INL_H
 
 template <typename T>
-shlibpp::SharedLibraryClassFactory<T>::SharedLibraryClassFactory(int32_t startCheck,
+sharedlibpp::SharedLibraryClassFactory<T>::SharedLibraryClassFactory(int32_t startCheck,
                                                                  int32_t endCheck,
                                                                  int32_t systemVersion,
                                                                  const char *factoryName) :
@@ -19,7 +19,7 @@ shlibpp::SharedLibraryClassFactory<T>::SharedLibraryClassFactory(int32_t startCh
 }
 
 template <typename T>
-shlibpp::SharedLibraryClassFactory<T>::SharedLibraryClassFactory(const char *dll_name,
+sharedlibpp::SharedLibraryClassFactory<T>::SharedLibraryClassFactory(const char *dll_name,
                                                                  int32_t startCheck,
                                                                  int32_t endCheck,
                                                                  int32_t systemVersion,
@@ -29,14 +29,14 @@ shlibpp::SharedLibraryClassFactory<T>::SharedLibraryClassFactory(const char *dll
 }
 
 template <typename T>
-shlibpp::SharedLibraryClassFactory<T>::SharedLibraryClassFactory(const char *dll_name,
+sharedlibpp::SharedLibraryClassFactory<T>::SharedLibraryClassFactory(const char *dll_name,
                                                                  const char *factoryName) :
         SharedLibraryFactory(dll_name, factoryName)
 {
 }
 
 template <typename T>
-T* shlibpp::SharedLibraryClassFactory<T>::create() const
+T* sharedlibpp::SharedLibraryClassFactory<T>::create() const
 {
     if (!isValid()) {
         return nullptr;
@@ -45,7 +45,7 @@ T* shlibpp::SharedLibraryClassFactory<T>::create() const
 }
 
 template <typename T>
-void shlibpp::SharedLibraryClassFactory<T>::destroy(T *obj) const
+void sharedlibpp::SharedLibraryClassFactory<T>::destroy(T *obj) const
 {
     if (!isValid()) {
         return;

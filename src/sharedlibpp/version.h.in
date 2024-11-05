@@ -9,13 +9,13 @@
 #ifndef SHAREDLIBPP_VERSION_H
 #define SHAREDLIBPP_VERSION_H
 
-#include <shlibpp/api.h>
+#include <sharedlibpp/api.h>
 #include <string>
 
-#define SHLIBPP_VERSION_MAJOR @shlibpp_VERSION_MAJOR@
-#define SHLIBPP_VERSION_MINOR @shlibpp_VERSION_MINOR@
-#define SHLIBPP_VERSION_PATCH @shlibpp_VERSION_PATCH@
-#define SHLIBPP_VERSION "@shlibpp_VERSION@"
+#define SHLIBPP_VERSION_MAJOR @sharedlibpp_VERSION_MAJOR@
+#define SHLIBPP_VERSION_MINOR @sharedlibpp_VERSION_MINOR@
+#define SHLIBPP_VERSION_PATCH @sharedlibpp_VERSION_PATCH@
+#define SHLIBPP_VERSION "@sharedlibpp_VERSION@"
 
 namespace shlibpp {
 

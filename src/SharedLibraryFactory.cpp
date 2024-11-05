@@ -6,9 +6,9 @@
  * BSD-3-Clause license. See the accompanying LICENSE file for details.
  */
 
-#include <shlibpp/SharedLibraryFactory.h>
-#include <shlibpp/SharedLibraryClassApi.h>
-#include <shlibpp/SharedLibrary.h>
+#include <sharedlibpp/SharedLibraryFactory.h>
+#include <sharedlibpp/SharedLibraryClassApi.h>
+#include <sharedlibpp/SharedLibrary.h>
 
 #include <cstdlib>
 #include <fstream>
@@ -31,7 +31,7 @@
 #define PATH_SEPARATOR "/"
 #endif
 
-class shlibpp::SharedLibraryFactory::Private
+class sharedlibpp::SharedLibraryFactory::Private
 {
 public:
     Private(int32_t startCheck,
@@ -69,7 +69,7 @@ public:
 
 
 
-shlibpp::SharedLibraryFactory::Private::Private(int32_t startCheck,
+sharedlibpp::SharedLibraryFactory::Private::Private(int32_t startCheck,
                                                 int32_t endCheck,
                                                 int32_t systemVersion,
                                                 const char* factoryName) :
@@ -84,7 +84,7 @@ shlibpp::SharedLibraryFactory::Private::Private(int32_t startCheck,
     memset(&api, 0, sizeof(SharedLibraryClassApi));
 }
 
-std::vector<std::string> shlibpp::SharedLibraryFactory::Private::platformSpecificLibName(const std::string& library)
+std::vector<std::string> sharedlibpp::SharedLibraryFactory::Private::platformSpecificLibName(const std::string& library)
 {
 
 #if defined(_WIN32)
@@ -102,7 +102,7 @@ std::vector<std::string> shlibpp::SharedLibraryFactory::Private::platformSpecifi
 #endif
 }
 
-std::string shlibpp::SharedLibraryFactory::Private::findLibraryInExtendedPath(const std::string& libraryName)
+std::string sharedlibpp::SharedLibraryFactory::Private::findLibraryInExtendedPath(const std::string& libraryName)
 {
     std::size_t found = libraryName.find_first_of("\\/");
     if (found != std::string::npos) {
@@ -122,7 +122,7 @@ std::string shlibpp::SharedLibraryFactory::Private::findLibraryInExtendedPath(co
     return {};
 }
 
-bool shlibpp::SharedLibraryFactory::Private::open(const char* dll_name)
+bool sharedlibpp::SharedLibraryFactory::Private::open(const char* dll_name)
 {
     returnValue = 0;
     name = "";
@@ -173,7 +173,7 @@ bool shlibpp::SharedLibraryFactory::Private::open(const char* dll_name)
     return true;
 }
 
-bool shlibpp::SharedLibraryFactory::Private::isValid() const
+bool sharedlibpp::SharedLibraryFactory::Private::isValid() const
 {
     if (returnValue != startCheck) {
         return false;
@@ -193,7 +193,7 @@ bool shlibpp::SharedLibraryFactory::Private::isValid() const
     return true;
 }
 
-bool shlibpp::SharedLibraryFactory::Private::useFactoryFunction(void *factory)
+bool sharedlibpp::SharedLibraryFactory::Private::useFactoryFunction(void *factory)
 {
     api.startCheck = 0;
     if (factory == nullptr) {
@@ -204,7 +204,7 @@ bool shlibpp::SharedLibraryFactory::Private::useFactoryFunction(void *factory)
     return isValid();
 }
 
-void shlibpp::SharedLibraryFactory::Private::extendSearchPath(const std::string& path)
+void sharedlibpp::SharedLibraryFactory::Private::extendSearchPath(const std::string& path)
 {
     std::string pathToAdd = path;
 
@@ -221,7 +221,7 @@ void shlibpp::SharedLibraryFactory::Private::extendSearchPath(const std::string&
     extendedPath.push_back(pathToAdd);
 }
 
-void shlibpp::SharedLibraryFactory::Private::readExtendedPathFromEnvironment()
+void sharedlibpp::SharedLibraryFactory::Private::readExtendedPathFromEnvironment()
 {
     std::string path;
     auto content = std::getenv(pluginPathEnvVar.c_str());
@@ -243,7 +243,7 @@ void shlibpp::SharedLibraryFactory::Private::readExtendedPathFromEnvironment()
     }
 }
 
-shlibpp::SharedLibraryFactory::SharedLibraryFactory(int32_t startCheck,
+sharedlibpp::SharedLibraryFactory::SharedLibraryFactory(int32_t startCheck,
                                                     int32_t endCheck,
                                                     int32_t systemVersion,
                                                     const char *factoryName) :
@@ -251,7 +251,7 @@ shlibpp::SharedLibraryFactory::SharedLibraryFactory(int32_t startCheck,
 {
 }
 
-shlibpp::SharedLibraryFactory::SharedLibraryFactory(const char *dll_name,
+sharedlibpp::SharedLibraryFactory::SharedLibraryFactory(const char *dll_name,
                                                     int32_t startCheck,
                                                     int32_t endCheck,
                                                     int32_t systemVersion,
@@ -261,7 +261,7 @@ shlibpp::SharedLibraryFactory::SharedLibraryFactory(const char *dll_name,
     mPriv->open(dll_name);
 }
 
-shlibpp::SharedLibraryFactory::SharedLibraryFactory(const char* dll_name,
+sharedlibpp::SharedLibraryFactory::SharedLibraryFactory(const char* dll_name,
                                                     const char* factoryName) :
         SharedLibraryFactory(SHLIBPP_DEFAULT_START_CHECK,
                              SHLIBPP_DEFAULT_END_CHECK,
@@ -271,12 +271,12 @@ shlibpp::SharedLibraryFactory::SharedLibraryFactory(const char* dll_name,
     mPriv->open(dll_name);
 }
 
-shlibpp::SharedLibraryFactory::~SharedLibraryFactory()
+sharedlibpp::SharedLibraryFactory::~SharedLibraryFactory()
 {
     delete mPriv;
 }
 
-bool shlibpp::SharedLibraryFactory::open(const char *dll_name,
+bool sharedlibpp::SharedLibraryFactory::open(const char *dll_name,
                                          int32_t startCheck,
                                          int32_t endCheck,
                                          int32_t systemVersion,
@@ -289,7 +289,7 @@ bool shlibpp::SharedLibraryFactory::open(const char *dll_name,
     return mPriv->open(dll_name);
 }
 
-bool shlibpp::SharedLibraryFactory::open(const char* dll_name, const char* factoryName)
+bool sharedlibpp::SharedLibraryFactory::open(const char* dll_name, const char* factoryName)
 {
     mPriv->startCheck = SHLIBPP_DEFAULT_START_CHECK;
     mPriv->endCheck = SHLIBPP_DEFAULT_END_CHECK;
@@ -298,69 +298,69 @@ bool shlibpp::SharedLibraryFactory::open(const char* dll_name, const char* facto
     return mPriv->open(dll_name);
 }
 
-void shlibpp::SharedLibraryFactory::setPluginPathEnvVarName(const std::string &env_var)
+void sharedlibpp::SharedLibraryFactory::setPluginPathEnvVarName(const std::string &env_var)
 {
     mPriv->pluginPathEnvVar = env_var;
 }
 
-void shlibpp::SharedLibraryFactory::extendSearchPath(const std::string& path)
+void sharedlibpp::SharedLibraryFactory::extendSearchPath(const std::string& path)
 {
     mPriv->extendSearchPath(path);
 }
 
-bool shlibpp::SharedLibraryFactory::isValid() const
+bool sharedlibpp::SharedLibraryFactory::isValid() const
 {
     return mPriv->isValid();
 }
 
-shlibpp::SharedLibraryFactory::Status shlibpp::SharedLibraryFactory::getStatus() const
+sharedlibpp::SharedLibraryFactory::Status sharedlibpp::SharedLibraryFactory::getStatus() const
 {
     return mPriv->status;
 }
 
-std::string shlibpp::SharedLibraryFactory::getError() const
+std::string sharedlibpp::SharedLibraryFactory::getError() const
 {
     return mPriv->error;
 }
 
-const shlibpp::SharedLibraryClassApi& shlibpp::SharedLibraryFactory::getApi() const
+const sharedlibpp::SharedLibraryClassApi& sharedlibpp::SharedLibraryFactory::getApi() const
 {
     return mPriv->api;
 }
 
-int shlibpp::SharedLibraryFactory::getReferenceCount() const
+int sharedlibpp::SharedLibraryFactory::getReferenceCount() const
 {
     return mPriv->rct;
 }
 
-int shlibpp::SharedLibraryFactory::addRef()
+int sharedlibpp::SharedLibraryFactory::addRef()
 {
     mPriv->rct++;
     return mPriv->rct;
 }
 
-int shlibpp::SharedLibraryFactory::removeRef()
+int sharedlibpp::SharedLibraryFactory::removeRef()
 {
     mPriv->rct--;
     return mPriv->rct;
 }
 
-std::string shlibpp::SharedLibraryFactory::getName() const
+std::string sharedlibpp::SharedLibraryFactory::getName() const
 {
     return mPriv->name;
 }
 
-std::string shlibpp::SharedLibraryFactory::getClassName() const
+std::string sharedlibpp::SharedLibraryFactory::getClassName() const
 {
     return mPriv->className;
 }
 
-std::string shlibpp::SharedLibraryFactory::getBaseClassName() const
+std::string sharedlibpp::SharedLibraryFactory::getBaseClassName() const
 {
     return mPriv->baseClassName;
 }
 
-bool shlibpp::SharedLibraryFactory::useFactoryFunction(void *factory)
+bool sharedlibpp::SharedLibraryFactory::useFactoryFunction(void *factory)
 {
     return mPriv->useFactoryFunction(factory);
 }

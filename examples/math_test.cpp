@@ -9,8 +9,8 @@
 #include <stdio.h>
 #include "MyMath.h"
 
-#include <shlibpp/SharedLibraryClass.h>
-#include <shlibpp/SharedLibrary.h>
+#include <sharedlibpp/SharedLibraryClass.h>
+#include <sharedlibpp/SharedLibrary.h>
 
 
 int main(int argc, char *argv[])
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
     // create an instance of shared library class factory to load the library
     printf("Loading the shared library... \n");
-    shlibpp::SharedLibraryClassFactory<MyMath> myMathFactory(argv[1], "my_math");
+    sharedlibpp::SharedLibraryClassFactory<MyMath> myMathFactory(argv[1], "my_math");
     if (!myMathFactory.isValid()) {
         printf("error (%d) : %s\n", static_cast<std::uint32_t>(myMathFactory.getStatus()),
                                     myMathFactory.getError().c_str());
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     }
 
     // create an instance of the class and call its functions
-    shlibpp::SharedLibraryClass<MyMath> myMath(myMathFactory);
+    sharedlibpp::SharedLibraryClass<MyMath> myMath(myMathFactory);
     printf("Calling some of its functions... \n");
     printf("15 + 12 = %d\n", myMath->add(15, 12));
     printf("15 - 12 = %d\n", myMath->sub(15, 12));

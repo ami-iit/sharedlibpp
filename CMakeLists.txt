@@ -6,8 +6,8 @@
 
 cmake_minimum_required(VERSION 3.5)
 
-project(shlibpp
-        VERSION 0.0.2
+project(sharedlibpp
+        VERSION 0.0.3
         DESCRIPTION "Tiny cross-platform plug-in system (dll, so, dylib)"
         LANGUAGES CXX)
 
@@ -62,10 +62,10 @@ add_subdirectory(src)
 
 # Install CMake config files for the library
 include(InstallBasicPackageFiles)
-install_basic_package_files(shlibpp
-                            VERSION ${shlibpp_VERSION}
+install_basic_package_files(sharedlibpp
+                            VERSION ${sharedlibpp_VERSION}
                             COMPATIBILITY AnyNewerVersion
-                            EXPORT shlibpp
+                            EXPORT sharedlibpp
                             NO_CHECK_REQUIRED_COMPONENTS_MACRO)
 
 # Add uninstall target

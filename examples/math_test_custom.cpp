@@ -9,8 +9,8 @@
 #include <stdio.h>
 #include "MyMathCustom.h"
 
-#include <shlibpp/SharedLibraryClass.h>
-#include <shlibpp/SharedLibrary.h>
+#include <sharedlibpp/SharedLibraryClass.h>
+#include <sharedlibpp/SharedLibrary.h>
 
 
 int main(int argc, char *argv[])
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 
     // create an instance of shared library class factory to load the library
     printf("Loading the shared library... \n");
-    shlibpp::SharedLibraryClassFactory<MyMathCustom> myMathFactory(argv[1],
+    sharedlibpp::SharedLibraryClassFactory<MyMathCustom> myMathFactory(argv[1],
                                                                    CUSTOM_START_CHECK,
                                                                    CUSTOM_END_CHECK,
                                                                    CUSTOM_SYSTEM_VERSION,
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     }
 
     // create an instance of the class and call its functions
-    shlibpp::SharedLibraryClass<MyMathCustom> myMath(myMathFactory);
+    sharedlibpp::SharedLibraryClass<MyMathCustom> myMath(myMathFactory);
     printf("Calling some of its functions... \n");
     printf("15 + 12 = %d\n", myMath->add(15, 12));
     printf("15 - 12 = %d\n", myMath->sub(15, 12));

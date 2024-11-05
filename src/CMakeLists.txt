@@ -29,7 +29,7 @@ set(sharedlibpp_SRCS version.cpp
                  SharedLibrary.cpp
                  SharedLibraryFactory.cpp)
 
-add_library(shlibpp ${sharedlibpp_SRCS} ${sharedlibpp_HDRS})
+add_library(sharedlibpp ${sharedlibpp_SRCS} ${sharedlibpp_HDRS})
 add_library(sharedlibpp::sharedlibpp ALIAS sharedlibpp)
 
 # Add build definitions

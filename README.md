@@ -10,7 +10,6 @@ The original code is taken and from
 The code is simplified by removing dependencies and some helper functions are
 added to report the native OS error messages on failures.
 
-
 Building on Linux/Mac
 ---------------------
     $ cd sharedlibpp
@@ -34,3 +33,8 @@ The build system by default compiles and build the examples.
     > math_test mymath
     > math_test_custom mymathcustom
 ```
+
+Versioning policy
+-----------------
+
+Any ABI or API incompatible change will result in a major release bump.
